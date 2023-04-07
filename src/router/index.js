@@ -52,13 +52,13 @@ const routes = [
         ]
       },
       {
-        path: 'drug/list',
-        name: 'DrugList',
-        component: () => import('@/views/website/drugList'),
+        path: 'drug/all',
+        name: 'DrugAll',
+        component: () => import('@/views/website/drugAll'),
         meta: { title: '全部药品' }
       },
       {
-        path: 'drug/detail/:id',
+        path: 'drug/detail',
         name: 'DrugDetail',
         component: () => import('@/views/website/drugDetail'),
         meta: { title: '药品详情' }

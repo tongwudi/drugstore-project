@@ -53,7 +53,7 @@ export default {
     return {
       menus: [
         { name: '首页', path: '/website' },
-        { name: '全部药品', path: '/website/drug/list' },
+        { name: '全部药品', path: '/website/drug/all' },
         { name: '购物车', path: '/website/cart' }
       ],
       fixed: false
@@ -81,6 +81,7 @@ export default {
   background-color: #fff;
   border-bottom: 1px solid @borderColor;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  z-index: 99;
   &.fixed {
     position: fixed;
   }
