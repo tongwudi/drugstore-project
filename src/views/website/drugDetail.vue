@@ -17,8 +17,10 @@
           <el-input-number size="mini" v-model="number" :min="1" :max="99" />
         </div>
         <div class="info-btns">
-          <el-button icon="el-icon-shopping-cart-1">加入购物车</el-button>
-          <el-button type="danger" icon="el-icon-shopping-bag-1">
+          <el-button icon="el-icon-shopping-cart-1" @click="addToCart">
+            加入购物车
+          </el-button>
+          <el-button type="danger" icon="el-icon-shopping-bag-1" @click="goPay">
             立即购买
           </el-button>
         </div>
@@ -39,7 +41,7 @@
 export default {
   data() {
     return {
-      url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+      url: require('@/assets/drug.jpeg'),
       number: 1,
       activeIndex: '1'
     }
@@ -47,6 +49,14 @@ export default {
   filters: {
     filterPrice(val) {
       return `￥${val}.00`
+    }
+  },
+  methods: {
+    addToCart() {
+      this.$message.success('成功加入购物车！')
+    },
+    goPay() {
+      this.$router.push({ path: '/website/pay' })
     }
   }
 }
@@ -69,7 +79,7 @@ export default {
         margin-top: 20px;
         font-size: 14px;
         line-height: 20px;
-        color: #666;
+        color: @textColor;
       }
       &-name {
         font-size: 18px;
