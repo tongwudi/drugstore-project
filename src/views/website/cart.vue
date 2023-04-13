@@ -1,12 +1,12 @@
 <template>
   <div class="cart">
     <el-table
-    style="width: 100%"
+      style="width: 100%"
       :data="tableData"
       @selection-change="handleSelectionChange"
     >
       <el-table-column type="selection" align="center" width="55" />
-      <el-table-column prop="date" label="药品图片">
+      <el-table-column prop="date" label="药品图片" align="center">
         <template slot-scope="scope">
           <el-image class="image" :src="url"></el-image>
         </template>
@@ -105,6 +105,9 @@ export default {
 <style lang="less" scoped>
 .el-table {
   margin-bottom: 20px;
+}
+.image {
+  width: 120px;
 }
 .amount {
   font-size: 14px;

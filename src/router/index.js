@@ -18,7 +18,7 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'Home',
+        name: 'WebsiteHome',
         component: () => import('@/views/website/home'),
         meta: { title: '首页' }
       },
@@ -97,8 +97,8 @@ const routes = [
     children: [
       {
         path: '',
-        name: 'Home',
-        component: () => import('@/views/website/home'),
+        name: 'BackendHome',
+        component: () => import('@/views/backend/home'),
         meta: { title: '首页' }
       },
     ]

@@ -36,7 +36,7 @@
     </el-row>
     <el-divider content-position="left">2.确认订单信息</el-divider>
     <el-table style="width: 100%" :data="tableData">
-      <el-table-column prop="date" label="药品图片">
+      <el-table-column prop="date" label="药品图片" align="center">
         <template slot-scope="scope">
           <el-image class="image" :src="url"></el-image>
         </template>
@@ -165,6 +165,9 @@ export default {
       margin-left: auto;
     }
   }
+}
+.image {
+  width: 120px;
 }
 .order {
   display: flex;
