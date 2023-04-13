@@ -1,8 +1,8 @@
 <template>
   <div class="cart">
     <el-table
+    style="width: 100%"
       :data="tableData"
-      style="width: 100%"
       @selection-change="handleSelectionChange"
     >
       <el-table-column type="selection" align="center" width="55" />

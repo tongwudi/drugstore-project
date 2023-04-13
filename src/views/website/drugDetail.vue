@@ -27,17 +27,16 @@
       </div>
     </div>
     <el-tabs stretch v-model="activeIndex">
-      <el-tab-pane label="商品介绍" name="1"></el-tab-pane>
-      <el-tab-pane label="使用说明" name="2"></el-tab-pane>
-      <el-tab-pane label="用户评价" name="3"></el-tab-pane>
-      <el-tab-pane label="售后服务" name="4"></el-tab-pane>
+      <el-tab-pane label="商品介绍" name="1">商品介绍</el-tab-pane>
+      <el-tab-pane label="使用说明" name="2">使用说明</el-tab-pane>
+      <el-tab-pane label="用户评价" name="3">用户评价</el-tab-pane>
+      <el-tab-pane label="售后服务" name="4">售后服务</el-tab-pane>
     </el-tabs>
-
-    <div class="drug-detail_bottom">商品介绍</div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -45,6 +44,9 @@ export default {
       number: 1,
       activeIndex: '1'
     }
+  },
+  computed: {
+    ...mapGetters({ isLogin: 'isWebLogin' })
   },
   filters: {
     filterPrice(val) {
@@ -56,7 +58,9 @@ export default {
       this.$message.success('成功加入购物车！')
     },
     goPay() {
-      this.$router.push({ path: '/website/pay' })
+      this.$router.push({
+        path: this.isLogin ? '/website/pay' : '/website/login'
+      })
     }
   }
 }
@@ -91,16 +95,15 @@ export default {
       }
     }
   }
-  &_bottom {
-    height: 500px;
-    font-size: 30px;
-    letter-spacing: 20px;
-    margin: 0 auto;
-    text-align: center;
-    writing-mode: vertical-rl;
-  }
 }
-
+.el-tab-pane {
+  height: 1000px;
+  font-size: 48px;
+  letter-spacing: 40px;
+  margin: 0 auto;
+  text-align: center;
+  writing-mode: vertical-rl;
+}
 ::v-deep {
   .el-tabs__nav-scroll {
     width: 60%;

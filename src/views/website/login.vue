@@ -42,10 +42,14 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   data() {
     return {
-      form: {},
+      form: {
+        username: '',
+        password: ''
+      },
       rules: {
         username: [{ required: true, message: '账号必填', trigger: 'blur' }],
         password: [{ required: true, message: '密码必填', trigger: 'blur' }]
@@ -53,10 +57,21 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['SET_USERINFO']),
     login() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          console.log(valid)
+          const { username, password } = this.form
+          if (username != 'lijiao' && password != '123456') {
+            this.$message.error('没有此账号！')
+            return
+          }
+          const userInfo = {
+            ...this.form,
+            name: '李娇'
+          }
+          this.SET_USERINFO(userInfo)
+          this.$router.push({ path: '/' })
         }
       })
     }

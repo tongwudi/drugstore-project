@@ -35,7 +35,7 @@
       </el-col>
     </el-row>
     <el-divider content-position="left">2.确认订单信息</el-divider>
-    <el-table :data="tableData" style="width: 100%">
+    <el-table style="width: 100%" :data="tableData">
       <el-table-column prop="date" label="药品图片">
         <template slot-scope="scope">
           <el-image class="image" :src="url"></el-image>

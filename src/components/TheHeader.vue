@@ -18,10 +18,18 @@
           </div>
         </div>
 
-        <el-dropdown class="header-right" v-if="isLogin">
-          <span>李娇</span>
+        <el-dropdown v-if="isLogin" class="header-right" @command="handleClick">
+          <span>
+            {{ userInfo.name }}<i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <!-- <el-dropdown-item>个人中心</el-dropdown-item> -->
+            <!-- <el-dropdown-item>修改密码</el-dropdown-item> -->
+            <el-dropdown-item command="logout">退出登录</el-dropdown-item>
+          </el-dropdown-menu>
         </el-dropdown>
-        <div class="header-right" v-else>
+
+        <div v-else class="header-right">
           <el-link
             class="login"
             :underline="false"
@@ -47,7 +55,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 export default {
   data() {
     return {
@@ -60,12 +68,25 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({ isLogin: 'isWebLogin' })
+    ...mapGetters({
+      isLogin: 'isWebLogin',
+      userInfo: 'getUserInfo'
+    })
   },
   created() {
     window.addEventListener('scroll', () => {
       this.fixed = document.documentElement.scrollTop > 0
     })
+  },
+  methods: {
+    ...mapMutations(['DELETE_USERINFO']),
+    handleClick(key) {
+      switch (key) {
+        case 'logout':
+          this.DELETE_USERINFO()
+          break
+      }
+    }
   }
 }
 </script>
@@ -90,7 +111,7 @@ export default {
     display: flex;
     align-items: center;
     .logo {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: bold;
       transition: transform 0.3s;
       // 文字渐变
@@ -103,7 +124,7 @@ export default {
     }
     .menu {
       margin-left: 60px;
-      font-size: 14px;
+      font-size: 16px;
       display: flex;
       align-items: center;
       &-item {

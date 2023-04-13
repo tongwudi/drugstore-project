@@ -5,12 +5,22 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    webToken: ''
+    userInfo: localStorage.getItem('userInfo') || ''
   },
   getters: {
-    isWebLogin: state => !!state.webToken
+    isWebLogin: state => !!state.userInfo,
+    getUserInfo: state => JSON.parse(state.userInfo)
   },
-  mutations: {},
+  mutations: {
+    SET_USERINFO(state, obj) {
+      state.userInfo = JSON.stringify(obj)
+      localStorage.setItem('userInfo', JSON.stringify(obj))
+    },
+    DELETE_USERINFO(state) {
+      state.userInfo = ''
+      localStorage.removeItem('userInfo')
+    }
+  },
   actions: {},
   modules: {}
 })
