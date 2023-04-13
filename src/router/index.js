@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import WebsiteView from '@/views/website/index'
-import MineView from '@/views/website/mine/index'
+import BackendView from '@/views/backend/index'
+
+// import MineView from '@/views/website/mine/index'
 
 Vue.use(VueRouter)
 
@@ -20,37 +22,37 @@ const routes = [
         component: () => import('@/views/website/home'),
         meta: { title: '首页' }
       },
-      {
-        path: 'mine',
-        name: 'Mine',
-        component: MineView,
-        children: [
-          {
-            path: 'profile',
-            name: 'Profile',
-            component: () => import('@/views/website/mine/profile'),
-            meta: { title: '我的资料' }
-          },
-          {
-            path: 'address',
-            name: 'Address',
-            component: () => import('@/views/website/mine/address'),
-            meta: { title: '我的收货地址' }
-          },
-          {
-            path: 'order',
-            name: 'Order',
-            component: () => import('@/views/website/mine/order'),
-            meta: { title: '我的订单' }
-          },
-          {
-            path: 'order/detail/:id',
-            name: 'OrderDetail',
-            component: () => import('@/views/website/mine/orderDetail'),
-            meta: { title: '订单详情' }
-          }
-        ]
-      },
+      //   {
+      //     path: 'mine',
+      //     name: 'Mine',
+      //     component: MineView,
+      //     children: [
+      //       {
+      //         path: 'profile',
+      //         name: 'Profile',
+      //         component: () => import('@/views/website/mine/profile'),
+      //         meta: { title: '我的资料' }
+      //       },
+      //       {
+      //         path: 'address',
+      //         name: 'Address',
+      //         component: () => import('@/views/website/mine/address'),
+      //         meta: { title: '我的收货地址' }
+      //       },
+      //       {
+      //         path: 'order',
+      //         name: 'Order',
+      //         component: () => import('@/views/website/mine/order'),
+      //         meta: { title: '我的订单' }
+      //       },
+      //       {
+      //         path: 'order/detail/:id',
+      //         name: 'OrderDetail',
+      //         component: () => import('@/views/website/mine/orderDetail'),
+      //         meta: { title: '订单详情' }
+      //       }
+      //     ]
+      //   },
       {
         path: 'drug/all',
         name: 'DrugAll',
@@ -88,6 +90,18 @@ const routes = [
     name: 'Register',
     component: () => import('@/views/website/register'),
     meta: { title: '注册' }
+  },
+  {
+    path: '/backend',
+    component: BackendView,
+    children: [
+      {
+        path: '',
+        name: 'Home',
+        component: () => import('@/views/website/home'),
+        meta: { title: '首页' }
+      },
+    ]
   },
   {
     path: '/:pathMatch(.*)',

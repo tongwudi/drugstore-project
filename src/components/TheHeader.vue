@@ -134,7 +134,7 @@ export default {
           color: @textActiveColor;
         }
         + .menu-item {
-          margin-left: 40px;
+          margin-left: 50px;
         }
       }
       .router-link-active {
