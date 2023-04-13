@@ -48,11 +48,6 @@ export default {
   computed: {
     ...mapGetters({ isLogin: 'isWebLogin' })
   },
-  filters: {
-    filterPrice(val) {
-      return `￥${val}.00`
-    }
-  },
   methods: {
     addToCart() {
       this.$message.success('成功加入购物车！')

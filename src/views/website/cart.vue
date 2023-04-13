@@ -72,11 +72,6 @@ export default {
       multipleSelection: []
     }
   },
-  filters: {
-    filterPrice(val) {
-      return `￥${val}.00`
-    }
-  },
   computed: {
     total() {
       const num = this.multipleSelection.reduce((a, v) => {

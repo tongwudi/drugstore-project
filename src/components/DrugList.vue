@@ -20,11 +20,6 @@ export default {
       url: require('@/assets/drug.jpeg')
     }
   },
-  filters: {
-    filterPrice(val) {
-      return `￥ ${val}.00`
-    }
-  },
   methods: {
     goDetail() {
       this.$router.push({ path: '/website/drug/detail' })

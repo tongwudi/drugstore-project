@@ -101,11 +101,6 @@ export default {
       tableData: [{ price: 13, number: 3 }]
     }
   },
-  filters: {
-    filterPrice(val) {
-      return `￥${val}.00`
-    }
-  },
   methods: {
     changeAddress(idx) {
       this.activeIndex = idx
