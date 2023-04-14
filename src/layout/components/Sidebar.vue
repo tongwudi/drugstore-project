@@ -3,6 +3,7 @@
     <el-button
       class="hamburger"
       type="text"
+      title="折叠"
       :icon="isCollapse ? 'el-icon-s-unfold' : 'el-icon-s-fold'"
       @click="toggleSidebar"
     />
@@ -62,8 +63,7 @@ export default {
   background-color: #304156;
 }
 .el-scrollbar {
-  // height: 100%;
-  height: calc(100% - 45px);
+  height: calc(100% - 42px);
   // 若没有 aside 包裹，高度会自动撑满
   // background-color: #304156;
 }
@@ -85,10 +85,19 @@ export default {
 
 .hamburger {
   width: 100%;
-  height: 45px;
+  height: 42px;
   font-size: 18px;
   padding: 0;
   border: none;
   color: #bfcbd9;
+  transition: all 0.2s;
+  &:hover,
+  &:focus,
+  &:active {
+    color: #bfcbd9;
+  }
+  &:hover {
+    background-color: #263445;
+  }
 }
 </style>
