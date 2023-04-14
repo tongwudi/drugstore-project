@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import WebsiteView from '@/views/website/index'
-import BackendView from '@/views/backend/index'
+import LayoutView from '@/layout/index'
 
 // import MineView from '@/views/website/mine/index'
 
@@ -93,12 +93,12 @@ const routes = [
   },
   {
     path: '/backend',
-    component: BackendView,
+    component: LayoutView,
     children: [
       {
         path: '',
-        name: 'BackendHome',
-        component: () => import('@/views/backend/home'),
+        name: 'BackendIndex',
+        component: () => import('@/views/backend/index'),
         meta: { title: '首页' }
       },
     ]

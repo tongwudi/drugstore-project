@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import DrugList from '@/components/website/DrugList'
+import DrugList from '@/components/DrugList'
 
 export default {
   components: { DrugList },
