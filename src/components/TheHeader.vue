@@ -90,13 +90,9 @@ export default {
 .header {
   width: 100%;
   height: @headerHeight!important;
-  // position: fixed;
-  // top: 0;
-  // left: 0;
   display: flex;
   background-color: #fff;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  z-index: 99;
   &-left {
     flex: 1;
     display: flex;
@@ -140,8 +136,8 @@ export default {
       line-height: @headerHeight;
       cursor: pointer;
     }
-    .login {
-      margin-right: 20px;
+    .register {
+      margin-left: 20px;
     }
   }
 }

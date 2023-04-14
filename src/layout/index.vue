@@ -1,5 +1,5 @@
 <template>
-  <el-container direction="vertical">
+  <el-container style="height: 100%" direction="vertical">
     <Navbar />
     <el-container>
       <Sidebar />
@@ -19,10 +19,10 @@
 <script>
 import Navbar from '@/layout/components/Navbar'
 import Sidebar from '@/layout/components/Sidebar'
-import { mapMutations } from 'vuex'
-const WIDTH = 992
+import ResizeMixin from '@/mixins/ResizeMixin.js'
 
 export default {
+  mixins: [ResizeMixin],
   components: { Navbar, Sidebar },
   data() {
     const item = {
@@ -32,29 +32,6 @@ export default {
     }
     return {
       tableData: Array(10).fill(item)
-    }
-  },
-  created() {
-    this.resizeHandler()
-    window.addEventListener('resize', this.resizeHandler)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.resizeHandler)
-  },
-  methods: {
-    ...mapMutations(['COLLAPSE_SIDEBAR','TOGGLE_SIDEBAR']),
-    isMobile() {
-      const rect = document.body.getBoundingClientRect()
-      return rect.width - 1 < WIDTH
-    },
-    resizeHandler() {
-      const isMobile = this.isMobile()
-      console.log(isMobile)
-      if (isMobile) {
-        this.COLLAPSE_SIDEBAR()
-      } else{
-        this.TOGGLE_SIDEBAR()
-      }
     }
   }
 }
