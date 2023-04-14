@@ -2,7 +2,7 @@
   <el-header class="header">
     <el-row class="container" type="flex" align="middle">
       <div class="header-left">
-        <span class="logo">我的药店</span>
+        <span class="logo" @click="goHome">我的药店</span>
 
         <div class="menu">
           <router-link
@@ -17,33 +17,35 @@
         </div>
       </div>
 
-      <el-dropdown v-if="isLogin" class="header-right" @command="handleClick">
-        <span class="dropdown-link">
-          {{ userInfo.name }}<i class="el-icon-arrow-down el-icon--right"></i>
-        </span>
-        <el-dropdown-menu slot="dropdown">
-          <!-- <el-dropdown-item>个人中心</el-dropdown-item> -->
-          <!-- <el-dropdown-item>修改密码</el-dropdown-item> -->
-          <el-dropdown-item command="logout">退出登录</el-dropdown-item>
-        </el-dropdown-menu>
-      </el-dropdown>
+      <div class="header-right">
+        <el-dropdown v-if="isLogin" trigger="click" @command="handleClick">
+          <span class="dropdown-link">
+            {{ userInfo.name }}<i class="el-icon-arrow-down el-icon--right"></i>
+          </span>
+          <el-dropdown-menu slot="dropdown">
+            <!-- <el-dropdown-item>个人中心</el-dropdown-item> -->
+            <!-- <el-dropdown-item>修改密码</el-dropdown-item> -->
+            <el-dropdown-item command="logout">退出登录</el-dropdown-item>
+          </el-dropdown-menu>
+        </el-dropdown>
 
-      <div v-else class="header-right">
-        <el-link
-          class="login"
-          :underline="false"
-          @click="$router.push({ path: '/website/login' })"
-        >
-          登录
-        </el-link>
-        <el-button
-          class="register"
-          size="mini"
-          type="primary"
-          @click="$router.push({ path: '/website/register' })"
-        >
-          注册
-        </el-button>
+        <el-row v-else type="flex">
+          <el-link
+            class="login"
+            :underline="false"
+            @click="$router.push({ path: '/website/login' })"
+          >
+            登录
+          </el-link>
+          <el-button
+            class="register"
+            size="mini"
+            type="primary"
+            @click="$router.push({ path: '/website/register' })"
+          >
+            注册
+          </el-button>
+        </el-row>
       </div>
     </el-row>
   </el-header>
@@ -69,6 +71,10 @@ export default {
   },
   methods: {
     ...mapMutations(['DELETE_USERINFO']),
+    goHome() {
+      if (this.$route.path === '/website') return
+      this.$router.push('/website')
+    },
     handleClick(key) {
       switch (key) {
         case 'logout':
@@ -84,11 +90,11 @@ export default {
 .header {
   width: 100%;
   height: @headerHeight!important;
-  position: fixed;
-  top: 0;
-  right: 0;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  display: flex;
   background-color: #fff;
-  border-bottom: 1px solid @borderColor;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   z-index: 99;
   &-left {
@@ -96,20 +102,20 @@ export default {
     display: flex;
     align-items: center;
     .logo {
-      font-size: 22px;
+      font-size: 24px;
       font-weight: bold;
       transition: transform 0.3s;
       // 文字渐变
       background-image: linear-gradient(45deg, orange, green, skyblue);
       background-clip: text;
       color: transparent;
+      cursor: pointer;
       &:hover {
         transform: scale(1.05);
       }
     }
     .menu {
-      margin-left: 60px;
-      font-size: 16px;
+      margin-left: 70px;
       display: flex;
       align-items: center;
       &-item {
@@ -119,7 +125,7 @@ export default {
           color: @textActiveColor;
         }
         + .menu-item {
-          margin-left: 50px;
+          margin-left: 45px;
         }
       }
       .router-link-active {
@@ -130,6 +136,8 @@ export default {
   }
   &-right {
     .dropdown-link {
+      display: block;
+      line-height: @headerHeight;
       cursor: pointer;
     }
     .login {

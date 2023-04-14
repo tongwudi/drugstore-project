@@ -2,7 +2,7 @@
   <div class="website">
     <TheHeader />
 
-    <el-main class="main">
+    <el-main>
       <el-card class="container">
         <router-view />
       </el-card>
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import TheHeader from '@/components/TheHeader'
+import TheHeader from '@/components/website/TheHeader'
 
 export default {
   components: { TheHeader }
@@ -19,7 +19,4 @@ export default {
 </script>
 
 <style lang="less">
-.main {
-  padding-top: calc(@headerHeight + 20px) !important;
-}
 </style>

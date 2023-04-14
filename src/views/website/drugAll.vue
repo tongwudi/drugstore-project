@@ -26,7 +26,7 @@
           </el-row>
         </el-radio-group>
       </el-form-item>
-      <el-form-item style="float: right">
+      <el-form-item style="text-align: right">
         <el-button size="small" @click="reset('form')">重置搜索</el-button>
       </el-form-item>
     </el-form>
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import DrugList from '@/components/DrugList'
+import DrugList from '@/components/website/DrugList'
 
 export default {
   components: { DrugList },
@@ -113,9 +113,8 @@ export default {
 
 <style lang="less" scoped>
 .el-form {
-  border: 1px solid #ddd;
+  border: 1px solid @borderColor;
   padding: 12px 20px;
-  overflow: hidden;
 }
 .el-form-item {
   margin-bottom: 0;
