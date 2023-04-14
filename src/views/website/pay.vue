@@ -107,7 +107,7 @@ export default {
     },
     paymentNow() {
       this.$message.success('付款成功')
-      this.$router.push({ path: '/' })
+      this.$router.push({ path: '/website' })
     }
   }
 }

@@ -71,7 +71,7 @@ export default {
             name: '李娇'
           }
           this.SET_USERINFO(userInfo)
-          this.$router.push({ path: '/' })
+          this.$router.push({ path: '/website' })
         }
       })
     }

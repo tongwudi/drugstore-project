@@ -2,7 +2,7 @@
   <div class="website">
     <TheHeader />
 
-    <el-main>
+    <el-main class="main">
       <el-card class="container">
         <router-view />
       </el-card>
@@ -17,3 +17,9 @@ export default {
   components: { TheHeader }
 }
 </script>
+
+<style lang="less">
+.main {
+  padding-top: calc(@headerHeight + 20px) !important;
+}
+</style>

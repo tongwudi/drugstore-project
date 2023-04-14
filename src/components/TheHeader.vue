@@ -1,57 +1,52 @@
 <template>
-  <div>
-    <el-header class="header" :class="{ fixed }">
-      <el-row class="container" type="flex" align="middle">
-        <div class="header-left">
-          <span class="logo">我的药店</span>
+  <el-header class="header">
+    <el-row class="container" type="flex" align="middle">
+      <div class="header-left">
+        <span class="logo">我的药店</span>
 
-          <div class="menu">
-            <router-link
-              class="menu-item"
-              v-for="item in menus"
-              :key="item.path"
-              :to="item.path"
-              exact
-            >
-              {{ item.name }}
-            </router-link>
-          </div>
-        </div>
-
-        <el-dropdown v-if="isLogin" class="header-right" @command="handleClick">
-          <span>
-            {{ userInfo.name }}<i class="el-icon-arrow-down el-icon--right"></i>
-          </span>
-          <el-dropdown-menu slot="dropdown">
-            <!-- <el-dropdown-item>个人中心</el-dropdown-item> -->
-            <!-- <el-dropdown-item>修改密码</el-dropdown-item> -->
-            <el-dropdown-item command="logout">退出登录</el-dropdown-item>
-          </el-dropdown-menu>
-        </el-dropdown>
-
-        <div v-else class="header-right">
-          <el-link
-            class="login"
-            :underline="false"
-            @click="$router.push({ path: '/website/login' })"
+        <div class="menu">
+          <router-link
+            class="menu-item"
+            v-for="item in menus"
+            :key="item.path"
+            :to="item.path"
+            exact
           >
-            登录
-          </el-link>
-          <el-button
-            class="register"
-            size="mini"
-            type="primary"
-            @click="$router.push({ path: '/website/register' })"
-          >
-            注册
-          </el-button>
+            {{ item.name }}
+          </router-link>
         </div>
-      </el-row>
-    </el-header>
+      </div>
 
-    <!-- 解决固定定位后高度塌陷问题 -->
-    <div class="holder" v-show="fixed" />
-  </div>
+      <el-dropdown v-if="isLogin" class="header-right" @command="handleClick">
+        <span class="dropdown-link">
+          {{ userInfo.name }}<i class="el-icon-arrow-down el-icon--right"></i>
+        </span>
+        <el-dropdown-menu slot="dropdown">
+          <!-- <el-dropdown-item>个人中心</el-dropdown-item> -->
+          <!-- <el-dropdown-item>修改密码</el-dropdown-item> -->
+          <el-dropdown-item command="logout">退出登录</el-dropdown-item>
+        </el-dropdown-menu>
+      </el-dropdown>
+
+      <div v-else class="header-right">
+        <el-link
+          class="login"
+          :underline="false"
+          @click="$router.push({ path: '/website/login' })"
+        >
+          登录
+        </el-link>
+        <el-button
+          class="register"
+          size="mini"
+          type="primary"
+          @click="$router.push({ path: '/website/register' })"
+        >
+          注册
+        </el-button>
+      </div>
+    </el-row>
+  </el-header>
 </template>
 
 <script>
@@ -63,19 +58,13 @@ export default {
         { name: '首页', path: '/website' },
         { name: '全部药品', path: '/website/drug/all' },
         { name: '购物车', path: '/website/cart' }
-      ],
-      fixed: false
+      ]
     }
   },
   computed: {
     ...mapGetters({
       isLogin: 'isWebLogin',
       userInfo: 'getUserInfo'
-    })
-  },
-  created() {
-    window.addEventListener('scroll', () => {
-      this.fixed = document.documentElement.scrollTop > 0
     })
   },
   methods: {
@@ -92,20 +81,16 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.holder {
-  height: 60px;
-}
 .header {
-  position: relative;
-  left: 0;
+  width: 100%;
+  height: @headerHeight!important;
+  position: fixed;
+  top: 0;
   right: 0;
   background-color: #fff;
   border-bottom: 1px solid @borderColor;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   z-index: 99;
-  &.fixed {
-    position: fixed;
-  }
   &-left {
     flex: 1;
     display: flex;
@@ -143,8 +128,13 @@ export default {
       }
     }
   }
-  .login {
-    margin-right: 20px;
+  &-right {
+    .dropdown-link {
+      cursor: pointer;
+    }
+    .login {
+      margin-right: 20px;
+    }
   }
 }
 </style>
