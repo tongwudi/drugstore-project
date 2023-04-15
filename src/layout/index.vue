@@ -16,8 +16,8 @@ import Sidebar from '@/layout/components/Sidebar'
 import ResizeMixin from '@/mixins/ResizeMixin.js'
 
 export default {
-  mixins: [ResizeMixin],
-  components: { Navbar, Sidebar }
+  components: { Navbar, Sidebar },
+  mixins: [ResizeMixin]
 }
 </script>
 

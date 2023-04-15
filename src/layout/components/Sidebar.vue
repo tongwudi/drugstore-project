@@ -30,7 +30,7 @@
           <el-menu-item index="/backend/drug">药品管理</el-menu-item>
           <el-menu-item index="/backend/stock">库存管理</el-menu-item>
         </el-submenu>
-        <el-submenu index="2">
+        <el-submenu index="2" v-if="userInfo.name === '管理员'">
           <template slot="title">
             <i class="el-icon-setting"></i>
             <span slot="title">系统</span>
@@ -48,7 +48,10 @@ import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters(['isCollapse']),
+    ...mapGetters({
+      isCollapse: 'isCollapse',
+      userInfo: 'getUserInfo'
+    }),
     activeMenu() {
       const route = this.$route
       return route.path

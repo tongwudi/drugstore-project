@@ -6,21 +6,21 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    userInfo: localStorage.getItem('userInfo'),
+    userInfo: JSON.parse(localStorage.getItem('userInfo')),
     collapse: +Cookies.get('collapse') || 0
   },
   getters: {
     isWebLogin: state => !!state.userInfo,
-    getUserInfo: state => JSON.parse(state.userInfo) || {},
-    isCollapse: state => !!+state.collapse,
+    getUserInfo: state => state.userInfo,
+    isCollapse: state => !!+state.collapse
   },
   mutations: {
     SET_USERINFO(state, obj) {
-      state.userInfo = JSON.stringify(obj)
+      state.userInfo = obj
       localStorage.setItem('userInfo', JSON.stringify(obj))
     },
     DELETE_USERINFO(state) {
-      state.userInfo = ''
+      state.userInfo = null
       localStorage.removeItem('userInfo')
     },
     TOGGLE_SIDEBAR(state) {
