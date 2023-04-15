@@ -11,7 +11,7 @@ export default new Vuex.Store({
   },
   getters: {
     isWebLogin: state => !!state.userInfo,
-    getUserInfo: state => state.userInfo,
+    getUserInfo: state => state.userInfo || {},
     isCollapse: state => !!+state.collapse
   },
   mutations: {

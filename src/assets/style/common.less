@@ -16,3 +16,29 @@ body,
   width: @containerWidth;
   margin: 0 auto;
 }
+
+.big-title {
+  line-height: 30px;
+  font-size: 20px;
+  margin-bottom: 25px;
+  text-align: center;
+  color: @textColor;
+  letter-spacing: 2px;
+  position: relative;
+}
+
+/* fade-transform */
+.fade-transform-leave-active,
+.fade-transform-enter-active {
+  transition: all 0.5s;
+}
+
+.fade-transform-enter {
+  opacity: 0;
+  transform: translateX(-30px);
+}
+
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}

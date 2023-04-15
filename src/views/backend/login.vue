@@ -55,11 +55,7 @@ export default {
             return
           }
           const userInfo = { ...this.form }
-          if (this.form.username === 'lijiao') {
-            userInfo.name = '李娇'
-          } else {
-            userInfo.name = '管理员'
-          }
+          userInfo.name = this.form.username === 'lijiao' ? '李娇' : '管理员'
           this.SET_USERINFO(userInfo)
           this.$router.push({ path: '/backend' })
         }

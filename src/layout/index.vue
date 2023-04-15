@@ -3,9 +3,13 @@
     <Navbar />
     <el-container>
       <Sidebar />
-      <el-main>
-        <router-view />
-      </el-main>
+      <!-- <el-main> -->
+      <el-card>
+        <transition name="fade-transform" mode="out-in">
+          <router-view />
+        </transition>
+      </el-card>
+      <!-- </el-main> -->
     </el-container>
   </el-container>
 </template>
@@ -21,4 +25,10 @@ export default {
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.el-card {
+  // height: 100%;
+  flex: 1;
+  margin: 10px;
+}
+</style>
