@@ -12,7 +12,7 @@
         </span>
         <el-dropdown-menu slot="dropdown">
           <!-- <el-dropdown-item>个人中心</el-dropdown-item> -->
-          <!-- <el-dropdown-item>修改密码</el-dropdown-item> -->
+          <el-dropdown-item>修改密码</el-dropdown-item>
           <el-dropdown-item command="logout">退出登录</el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -30,24 +30,30 @@
 </template>
 
 <script>
+import { mapGetters, mapMutations } from 'vuex'
+
 export default {
-  data() {
-    return {
-      isLogin: true,
-      userInfo: { name: '李娇' }
-    }
+  computed: {
+    ...mapGetters({
+      isLogin: 'isWebLogin',
+      userInfo: 'getUserInfo'
+    })
   },
   methods: {
+    ...mapMutations(['DELETE_USERINFO']),
     goHome() {
       if (this.$route.path === '/backend') return
       this.$router.push('/backend')
     },
     goWebsite() {
+      this.DELETE_USERINFO()
       this.$router.push('/website')
     },
     handleClick(key) {
       switch (key) {
         case 'logout':
+          this.DELETE_USERINFO()
+          this.$router.push('/backend/login')
           break
       }
     }
@@ -79,8 +85,9 @@ export default {
       }
     }
     .go-website {
+      line-height: 30px;
       margin-left: 15px;
-      padding: 5px 10px;
+      padding: 0 10px;
       font-weight: bold;
       border-radius: 4px;
       background-color: #ff9900;

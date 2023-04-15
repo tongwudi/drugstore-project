@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <div class="login-box">
-      <div class="big-title">我的药店</div>
+      <div class="big-title">我的药店管理后台</div>
 
       <el-form ref="loginForm" :model="form" :rules="rules">
         <el-form-item prop="username">
@@ -25,18 +25,6 @@
           </el-button>
         </el-form-item>
       </el-form>
-      <el-row class="tips" type="flex" justify="space-between">
-        <span>
-          还没有账号，前往
-          <el-link
-            type="primary"
-            @click="$router.push({ path: '/website/register' })"
-          >
-            注册
-          </el-link>
-        </span>
-        <el-link type="primary">忘记密码</el-link>
-      </el-row>
     </div>
   </div>
 </template>
@@ -62,17 +50,18 @@ export default {
     login() {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          const { username, password } = this.form
-          if (username != 'lijiao' && password != '123456') {
+          if (this.form.username != 'lijiao' && this.form.username != 'admin') {
             this.$message.error('没有此账号！')
             return
           }
-          const userInfo = {
-            ...this.form,
-            name: '李娇'
+          const userInfo = { ...this.form }
+          if (this.form.username != 'lijiao') {
+            userInfo.name = '李娇'
+          } else {
+            userInfo.name = '管理员'
           }
           this.SET_USERINFO(userInfo)
-          this.$router.push({ path: '/website' })
+          this.$router.push({ path: '/backend' })
         }
       })
     }

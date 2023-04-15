@@ -10,24 +10,16 @@
         label-width="6em"
       >
         <el-form-item label="账号" prop="username">
-          <el-input v-model="form.username" clearable></el-input>
+          <el-input v-model="form.username" clearable />
         </el-form-item>
         <!-- <el-form-item label="邮箱" prop="email">
-          <el-input type="email" v-model="form.email"></el-input>
+          <el-input type="email" v-model="form.email"/>
         </el-form-item> -->
         <el-form-item label="密码" prop="password">
-          <el-input
-            type="password"
-            v-model="form.password"
-            clearable
-          ></el-input>
+          <el-input type="password" v-model="form.password" clearable />
         </el-form-item>
         <el-form-item label="确认密码" prop="checkPass">
-          <el-input
-            type="password"
-            v-model="form.checkPass"
-            clearable
-          ></el-input>
+          <el-input type="password" v-model="form.checkPass" clearable />
         </el-form-item>
         <el-form-item>
           <el-button class="block" type="primary" @click="register">

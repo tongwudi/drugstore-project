@@ -15,26 +15,28 @@
         active-text-color="#409EFF"
         :collapse="isCollapse"
         :collapse-transition="false"
+        :default-active="activeMenu"
+        router
       >
-        <el-menu-item index="1">
+        <el-menu-item index="/backend/index">
           <i class="el-icon-s-home"></i>
           <span slot="title">首页</span>
         </el-menu-item>
-        <el-submenu index="2">
+        <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-menu"></i>
             <span slot="title">药品</span>
           </template>
-          <el-menu-item index="2-1">药品管理</el-menu-item>
-          <el-menu-item index="2-2">库存管理</el-menu-item>
+          <el-menu-item index="/backend/drug">药品管理</el-menu-item>
+          <el-menu-item index="/backend/stock">库存管理</el-menu-item>
         </el-submenu>
-        <el-submenu index="3">
+        <el-submenu index="2">
           <template slot="title">
             <i class="el-icon-setting"></i>
             <span slot="title">系统</span>
           </template>
-          <el-menu-item index="3-1">用户管理</el-menu-item>
-          <el-menu-item index="3-2">权限管理</el-menu-item>
+          <el-menu-item index="/backend/user">用户管理</el-menu-item>
+          <el-menu-item index="/backend/auth">权限管理</el-menu-item>
         </el-submenu>
       </el-menu>
     </el-scrollbar>
@@ -46,7 +48,11 @@ import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   computed: {
-    ...mapGetters(['isCollapse'])
+    ...mapGetters(['isCollapse']),
+    activeMenu() {
+      const route = this.$route
+      return route.path
+    }
   },
   methods: {
     ...mapMutations(['TOGGLE_SIDEBAR']),

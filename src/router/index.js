@@ -94,14 +94,45 @@ const routes = [
   {
     path: '/backend',
     component: LayoutView,
+    redirect: '/backend/index',
     children: [
       {
-        path: '',
+        path: 'index',
         name: 'BackendIndex',
         component: () => import('@/views/backend/index'),
         meta: { title: '首页' }
       },
+      {
+        path: 'drug',
+        name: 'BackendDrug',
+        component: () => import('@/views/backend/drug'),
+        meta: { title: '药品管理' }
+      },
+      {
+        path: 'stock',
+        name: 'BackendStock',
+        component: () => import('@/views/backend/stock'),
+        meta: { title: '库存管理' }
+      },
+      {
+        path: 'user',
+        name: 'BackendUser',
+        component: () => import('@/views/backend/user'),
+        meta: { title: '用户管理' }
+      },
+      {
+        path: 'auth',
+        name: 'BackendAuth',
+        component: () => import('@/views/backend/auth'),
+        meta: { title: '权限管理' }
+      }
     ]
+  },
+  {
+    path: '/backend/login',
+    name: 'BackendLogin',
+    component: () => import('@/views/backend/login'),
+    meta: { title: '登录' }
   },
   {
     path: '/:pathMatch(.*)',
