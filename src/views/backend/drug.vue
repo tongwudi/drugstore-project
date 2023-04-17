@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   data() {
     const item = {
@@ -48,6 +49,18 @@ export default {
       currentPage: 1,
       total: 10
     }
+  },
+  mounted() {
+    axios
+      .get('http://localhost:4303/users', { params: { _page: 2, _limit: 10 } })
+      .then(res => {
+        console.log(res)
+      })
+    // axios
+    //   .patch('http://localhost:4303/users/2', { username: 'zhangsan' })
+    //   .then(res => {
+    //     console.log(res)
+    //   })
   },
   methods: {
     handleSizeChange(val) {

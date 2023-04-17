@@ -17,3 +17,13 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### 安装服务
+```
+npm install -g json-server
+```
+
+### 启动服务
+```
+json-server --watch --port 4303 db.json
+```

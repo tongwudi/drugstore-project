@@ -1,12 +1,12 @@
 <template>
   <el-row class="drug-list" :gutter="20">
-    <el-col class="drug-item" :span="6" v-for="item in 20" :key="item">
+    <el-col class="drug-item" :span="6" v-for="item in list" :key="item.id">
       <div class="drug-item-box" @click="goDetail">
         <el-image :src="url"></el-image>
         <div class="info">
-          <div class="info-name">药品{{ item }}</div>
-          <div class="info-specification">12片x3板/盒</div>
-          <div class="info-price">{{ 9 | filterPrice }}</div>
+          <div class="info-name">{{ item.drugName }}</div>
+          <div class="info-specification">{{ item.specification }}</div>
+          <div class="info-price">{{ item.price | filterPrice }}</div>
         </div>
       </div>
     </el-col>
@@ -15,6 +15,9 @@
 
 <script>
 export default {
+  props: {
+    list: []
+  },
   data() {
     return {
       url: require('@/assets/drug.jpeg')

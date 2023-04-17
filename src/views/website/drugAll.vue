@@ -32,15 +32,22 @@
     </el-form>
 
     <el-row class="pagination" type="flex" justify="end" align="middle">
-      <el-pagination background layout="prev, pager, next" :total="total" />
+      <el-pagination
+        background
+        layout="prev, pager, next"
+        :current-page="currentPage"
+        :total="total"
+        @current-change="handleCurrentChange"
+      />
     </el-row>
 
-    <drug-list />
+    <drug-list :list="drugList" />
   </div>
 </template>
 
 <script>
 import DrugList from '@/components/DrugList'
+import { getDrugList } from '@/api/index'
 
 export default {
   components: { DrugList },
@@ -99,10 +106,23 @@ export default {
           ]
         }
       ],
-      total: 50
+      drugList: [],
+      total: 18,
+      currentPage: 1
     }
   },
+  mounted() {
+    this.getList()
+  },
   methods: {
+    async getList() {
+      const res = await getDrugList({ _page: this.currentPage, _limit: 12 })
+      this.drugList = res.data
+    },
+    handleCurrentChange(val) {
+      this.currentPage = val
+      this.getList()
+    },
     reset(formName) {
       this.$refs[formName].resetFields()
       this.form = {}

@@ -7,32 +7,50 @@
       </el-link>
     </div>
 
-    <el-tabs stretch v-model="activeIndex" @tab-click="handleClick">
-      <el-tab-pane label="感冒发烧" name="1"></el-tab-pane>
-      <el-tab-pane label="肠胃疾病" name="2"></el-tab-pane>
-      <el-tab-pane label="呼吸道类" name="3"></el-tab-pane>
-      <el-tab-pane label="心脑血管" name="4"></el-tab-pane>
-      <el-tab-pane label="妇科用药" name="5"></el-tab-pane>
-      <el-tab-pane label="皮肤科类" name="6"></el-tab-pane>
+    <el-tabs stretch v-model="activeName" @tab-click="handleClick">
+      <el-tab-pane
+        v-for="item in tabPanes"
+        :key="item"
+        :label="item"
+        :name="item"
+      />
     </el-tabs>
 
-    <drug-list />
+    <drug-list :list="drugList" />
   </div>
 </template>
 
 <script>
 import DrugList from '@/components/DrugList'
+import { getDrugList } from '@/api/index'
 
 export default {
   components: { DrugList },
   data() {
     return {
-      activeIndex: '1'
+      tabPanes: [
+        '感冒发热',
+        '肠胃用药',
+        '呼吸系统',
+        '心脑血管',
+        '妇科用药',
+        '皮肤科药'
+      ],
+      activeName: '感冒发热',
+      drugList: []
     }
   },
+  mounted() {
+    this.getList()
+  },
   methods: {
+    async getList() {
+      const res = await getDrugList({ indications: this.activeName })
+      this.drugList = res.data
+    },
     handleClick(e) {
-      console.log(e)
+      if (e.name === !this.activeName) return
+      this.getList()
     },
     goDrugList() {
       this.$router.push({ path: '/website/drug/all' })
