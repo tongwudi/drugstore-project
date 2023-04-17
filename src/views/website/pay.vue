@@ -58,11 +58,6 @@
           <span>{{ row.price * row.number }}</span>
         </template>
       </el-table-column>
-      <el-table-column fixed="right" label="操作" align="center" width="90">
-        <template slot-scope="scope">
-          <el-button size="small" type="text">删除</el-button>
-        </template>
-      </el-table-column>
     </el-table>
     <el-divider content-position="left">3.提交订单</el-divider>
     <el-row type="flex" justify="space-between">

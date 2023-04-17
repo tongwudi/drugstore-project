@@ -30,7 +30,7 @@
       </el-table-column>
       <el-table-column fixed="right" label="操作" align="center" width="90">
         <template slot-scope="{ row, $index }">
-          <el-button size="small" type="text" @click="del($index)">
+          <el-button size="small" plain type="danger" @click="del($index)">
             删除
           </el-button>
         </template>
