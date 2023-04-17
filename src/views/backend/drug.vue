@@ -1,13 +1,13 @@
 <template>
   <div class="app-container">
     <el-form size="small" :inline="true" :model="formInline">
-      <el-form-item label="审批人">
-        <el-input v-model="formInline.user" placeholder="审批人"></el-input>
+      <el-form-item label="药品名称">
+        <el-input v-model="formInline.drugName" placeholder="药品名称" />
       </el-form-item>
-      <el-form-item label="活动区域">
-        <el-select v-model="formInline.region" placeholder="活动区域">
-          <el-option label="区域一" value="shanghai"></el-option>
-          <el-option label="区域二" value="beijing"></el-option>
+      <el-form-item label="药品分类">
+        <el-select v-model="formInline.indications" placeholder="药品分类">
+          <el-option label="区域一" value="shanghai" />
+          <el-option label="区域二" value="beijing" />
         </el-select>
       </el-form-item>
       <el-form-item>
@@ -16,9 +16,16 @@
     </el-form>
 
     <el-table size="small" :data="tableData">
-      <el-table-column prop="date" label="日期" width="140"> </el-table-column>
-      <el-table-column prop="name" label="姓名" width="120"> </el-table-column>
-      <el-table-column prop="address" label="地址"> </el-table-column>
+      <el-table-column prop="drugName" label="药品名称" />
+      <el-table-column
+        prop="indications"
+        label="药品分类"
+        width="150"
+        align="center"
+      />
+      <el-table-column prop="dosageForm" label="剂型" width="150" />
+      <el-table-column prop="price" label="售价" width="120" />
+      <el-table-column prop="manufacturer" label="生产厂家" />
     </el-table>
 
     <el-pagination
@@ -35,40 +42,32 @@
 </template>
 
 <script>
-import axios from 'axios'
+import { getDrugList } from '@/api/index'
+
 export default {
   data() {
-    const item = {
-      date: '2016-05-02',
-      name: '王小虎',
-      address: '上海市普陀区金沙江路 1518 弄'
-    }
     return {
       formInline: {},
-      tableData: Array(10).fill(item),
+      tableData: [],
       currentPage: 1,
-      total: 10
+      total: 0
     }
   },
   mounted() {
-    axios
-      .get('http://localhost:4303/users', { params: { _page: 2, _limit: 10 } })
-      .then(res => {
-        console.log(res)
-      })
-    // axios
-    //   .patch('http://localhost:4303/users/2', { username: 'zhangsan' })
-    //   .then(res => {
-    //     console.log(res)
-    //   })
+    this.getList()
   },
   methods: {
+    async getList() {
+      const res = await getDrugList({ ...this.formInline })
+      this.tableData = res.data
+      this.total = Number(res.headers['x-total-count'])
+    },
     handleSizeChange(val) {
       console.log(`每页 ${val} 条`)
     },
     handleCurrentChange(val) {
       this.currentPage = val
-      console.log(`当前页: ${val}`)
+      this.getList()
     },
     search() {}
   }

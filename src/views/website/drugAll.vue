@@ -107,8 +107,8 @@ export default {
         }
       ],
       drugList: [],
-      total: 18,
-      currentPage: 1
+      currentPage: 1,
+      total: 0
     }
   },
   mounted() {
@@ -118,6 +118,7 @@ export default {
     async getList() {
       const res = await getDrugList({ _page: this.currentPage, _limit: 12 })
       this.drugList = res.data
+      this.total = Number(res.headers['x-total-count'])
     },
     handleCurrentChange(val) {
       this.currentPage = val
