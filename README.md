@@ -25,5 +25,5 @@ npm install -g json-server
 
 ### 启动服务
 ```
-json-server --watch --port 4303 db.json
+npm run mock
 ```
