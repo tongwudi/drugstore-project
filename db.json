@@ -1,11 +1,81 @@
 {
+  "category": [
+    {
+      "name": "感冒发热",
+      "id": 1
+    },
+    {
+      "name": "呼吸系统",
+      "id": 2
+    },
+    {
+      "name": "皮肤科药",
+      "id": 3
+    },
+    {
+      "name": "风湿骨科",
+      "id": 4
+    },
+    {
+      "name": "心脑血管",
+      "id": 5
+    },
+    {
+      "name": "肠胃用药",
+      "id": 6
+    },
+    {
+      "name": "妇科用药",
+      "id": 7
+    }
+  ],
+  "dosageForm": [
+    {
+      "name": "胶囊剂",
+      "id": 1
+    },
+    {
+      "name": "乳膏剂",
+      "id": 2
+    },
+    {
+      "name": "颗粒剂",
+      "id": 3
+    },
+    {
+      "name": "薄膜衣片剂",
+      "id": 4
+    },
+    {
+      "name": "片剂",
+      "id": 5
+    },
+    {
+      "name": "软膏剂",
+      "id": 6
+    },
+    {
+      "name": "膏剂",
+      "id": 7
+    },
+    {
+      "name": "水丸剂",
+      "id": 8
+    },
+    {
+      "name": "气雾剂",
+      "id": 9
+    }
+  ],
   "drug": [
     {
       "id": 1,
       "drugName": "布洛芬缓释胶囊",
       "price": "13",
       "dosageForm": "胶囊剂",
-      "indications": "风湿骨科",
+      "dosageFormId": 1,
+      "category": "风湿骨科",
+      "categoryId": 4,
       "specifications": "12粒x2板/盒",
       "approval": "国药准字H10900089",
       "manufacturer": "中美天津史克制药有限公司"
@@ -15,7 +85,9 @@
       "drugName": " 金嗓子喉片",
       "price": "8.96",
       "dosageForm": "乳膏剂",
-      "indications": "呼吸系统",
+      "dosageFormId": 2,
+      "category": "呼吸系统",
+      "categoryId": 2,
       "specifications": "6片*2板/盒",
       "approval": "国药准字B20020993",
       "manufacturer": "广西金嗓子有限责任公司"
@@ -25,7 +97,9 @@
       "drugName": "复方醋酸地塞米松乳膏",
       "price": "9.00",
       "dosageForm": "乳膏剂",
-      "indications": "皮肤科药",
+      "dosageFormId": 2,
+      "category": "皮肤科药",
+      "categoryId": 3,
       "specifications": "15mg/支",
       "approval": "国药准字H44024170",
       "manufacturer": "华润三九医药股份有限公司"
@@ -35,7 +109,9 @@
       "drugName": "达克宁",
       "price": "12.50",
       "dosageForm": "乳膏剂",
-      "indications": "皮肤科药",
+      "dosageFormId": 2,
+      "category": "皮肤科药",
+      "categoryId": 3,
       "specifications": "20g/支",
       "approval": "国药准字H61020001",
       "manufacturer": "西安杨森制药有限公司"
@@ -45,7 +121,9 @@
       "drugName": "感冒灵颗粒",
       "price": "11.89",
       "dosageForm": "颗粒剂",
-      "indications": "感冒发热",
+      "dosageFormId": 3,
+      "category": "感冒发热",
+      "categoryId": 1,
       "specifications": "9袋/盒",
       "approval": "国药准字H61020001",
       "manufacturer": "华润三九医药股份有限公司"
@@ -55,7 +133,9 @@
       "drugName": "拜新同",
       "price": "20.25",
       "dosageForm": "薄膜衣片剂",
-      "indications": "心脑血管",
+      "dosageFormId": 4,
+      "category": "心脑血管",
+      "categoryId": 5,
       "specifications": "7片/盒",
       "approval": "国药准字J20810028",
       "manufacturer": "拜耳医药保健有限公司"
@@ -65,7 +145,9 @@
       "drugName": "阿司匹林肠溶片",
       "price": "12.00",
       "dosageForm": "片剂",
-      "indications": "心脑血管",
+      "dosageFormId": 5,
+      "category": "心脑血管",
+      "categoryId": 5,
       "specifications": "15片x2板/盒",
       "approval": "国药准字H20160685",
       "manufacturer": "拜耳医药保健有限公司"
@@ -75,7 +157,9 @@
       "drugName": "马应龙麝香痔疮膏",
       "price": "8.00",
       "dosageForm": "软膏剂",
-      "indications": "肠胃用药",
+      "dosageFormId": 6,
+      "category": "肠胃用药",
+      "categoryId": 6,
       "specifications": "10g/支",
       "approval": "国药准字Z42021945",
       "manufacturer": "马应龙药业集团股份有限公司"
@@ -85,7 +169,9 @@
       "drugName": "健胃消食片",
       "price": "5.99",
       "dosageForm": "薄膜衣片剂",
-      "indications": "肠胃用药",
+      "dosageFormId": 4,
+      "category": "肠胃用药",
+      "categoryId": 6,
       "specifications": "8片x4板/盒",
       "approval": "国药准字Z20013220",
       "manufacturer": "江中药业股份有限公司"
@@ -95,7 +181,9 @@
       "drugName": "三九胃泰颗粒",
       "price": "11.97",
       "dosageForm": "颗粒剂",
-      "indications": "肠胃用药",
+      "dosageFormId": 3,
+      "category": "肠胃用药",
+      "categoryId": 6,
       "specifications": "6袋/盒",
       "approval": "国药准字Z44095218",
       "manufacturer": "华润三九医药股份有限公司"
@@ -105,7 +193,9 @@
       "drugName": "肠炎宁片",
       "price": "15.00",
       "dosageForm": "薄膜衣片剂",
-      "indications": "肠胃用药",
+      "dosageFormId": 4,
+      "category": "肠胃用药",
+      "categoryId": 6,
       "specifications": "12片x2板/盒",
       "approval": "国药准字Z36042611",
       "manufacturer": "江西康恩贝中药有限公司"
@@ -115,7 +205,9 @@
       "drugName": "京都念慈菴蜜炼川贝枇杷膏",
       "price": "22.98",
       "dosageForm": "膏剂",
-      "indications": "呼吸系统",
+      "dosageFormId": 7,
+      "category": "呼吸系统",
+      "categoryId": 2,
       "specifications": "150ml/瓶",
       "approval": "国药准字ZC20160005",
       "manufacturer": "京都念慈菴总厂有限公司"
@@ -125,7 +217,9 @@
       "drugName": "小儿肺热咳喘颗粒",
       "price": "22.98",
       "dosageForm": "颗粒剂",
-      "indications": "呼吸系统",
+      "dosageFormId": 3,
+      "category": "呼吸系统",
+      "categoryId": 2,
       "specifications": "6袋/盒",
       "approval": "国药准字ZC200535214",
       "manufacturer": "黑龙江葵花药业股份有限公司"
@@ -135,7 +229,9 @@
       "drugName": "妇科千金片",
       "price": "26.79",
       "dosageForm": "薄膜衣片剂",
-      "indications": "妇科用药",
+      "dosageFormId": 4,
+      "category": "妇科用药",
+      "categoryId": 7,
       "specifications": "18片x6板/盒",
       "approval": "国药准字Z43020027",
       "manufacturer": "株洲千金药业股份有限公司"
@@ -145,7 +241,9 @@
       "drugName": "毓婷",
       "price": "9.30",
       "dosageForm": "片剂",
-      "indications": "妇科用药",
+      "dosageFormId": 5,
+      "category": "妇科用药",
+      "categoryId": 7,
       "specifications": "2片/盒",
       "approval": "国药准字H11021372",
       "manufacturer": "华润紫竹药业有限公司"
@@ -155,7 +253,9 @@
       "drugName": "益母草颗粒",
       "price": "7.59",
       "dosageForm": "颗粒剂",
-      "indications": "妇科用药",
+      "dosageFormId": 3,
+      "category": "妇科用药",
+      "categoryId": 7,
       "specifications": "8袋/盒",
       "approval": "国药准字H13020660",
       "manufacturer": "北京同仁堂天然药物有限公司"
@@ -165,7 +265,9 @@
       "drugName": "正天丸",
       "price": "9.00",
       "dosageForm": "水丸剂",
-      "indications": "风湿骨科",
+      "dosageFormId": 8,
+      "category": "风湿骨科",
+      "categoryId": 4,
       "specifications": "10袋/盒",
       "approval": "国药准字Z44020771",
       "manufacturer": "华润三九医药股份有限公司"
@@ -173,9 +275,11 @@
     {
       "id": 18,
       "drugName": "云南白药气雾剂",
-      "price": "29.34",
+      "category": "风湿骨科",
+      "categoryId": 4,
       "dosageForm": "气雾剂",
-      "indications": "风湿骨科",
+      "dosageFormId": 9,
+      "price": "29.34",
       "specifications": "30g/盒",
       "approval": "国药准字Z530211034",
       "manufacturer": "云南白药集团股份有限公司"

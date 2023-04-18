@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     async getList() {
-      const res = await getDrugList({ indications: this.activeName })
+      const res = await getDrugList({ category: this.activeName })
       this.drugList = res.data
     },
     handleClick(e) {

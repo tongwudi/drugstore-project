@@ -7,9 +7,12 @@
 html,
 body,
 #app {
-  min-width: calc(@containerWidth + 40px);
   height: 100%;
   background-color: #f0f2f5;
+}
+
+.website {
+  min-width: calc(@containerWidth + 40px);
 }
 
 .container {
@@ -25,20 +28,4 @@ body,
   color: @textColor;
   letter-spacing: 2px;
   position: relative;
-}
-
-/* fade-transform */
-.fade-transform-leave-active,
-.fade-transform-enter-active {
-  transition: all 0.5s;
-}
-
-.fade-transform-enter {
-  opacity: 0;
-  transform: translateX(-30px);
-}
-
-.fade-transform-leave-to {
-  opacity: 0;
-  transform: translateX(30px);
 }

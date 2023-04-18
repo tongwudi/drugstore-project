@@ -4,7 +4,7 @@
       <el-image class="image" :src="url"></el-image>
       <div class="info">
         <div class="info-name">布洛芬缓释胶囊</div>
-        <div class="info-indications">适用症状：感冒发热</div>
+        <div class="info-category">适用症状：感冒发热</div>
         <div class="info-specifications">规格：8丸*15袋</div>
         <div class="info-approval">国药准字：GJ12345678</div>
         <div class="info-manufacturer">生产厂家：江西xxxx有限公司</div>
