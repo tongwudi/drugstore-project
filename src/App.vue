@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="{ website: isWebsite }">
+  <div id="app" :class="isWebsite ? 'website' : 'backend'">
     <router-view />
   </div>
 </template>

@@ -22,7 +22,7 @@
 
 <script>
 import DrugList from '@/components/DrugList'
-import { getDrugList } from '@/api/index'
+import { getDrugList } from '@/api/drug'
 
 export default {
   components: { DrugList },
@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     async getList() {
-      const res = await getDrugList({ category: this.activeName })
+      const res = await getDrugList({ indication: this.activeName })
       this.drugList = res.data
     },
     handleClick(e) {

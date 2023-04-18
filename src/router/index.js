@@ -10,7 +10,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '',
-    redirect: '/backend/login'
+    redirect: '/backend'
   },
   {
     path: '/website',
@@ -60,7 +60,7 @@ const routes = [
         meta: { title: '全部药品' }
       },
       {
-        path: 'drug/detail',
+        path: 'drug/detail/:id',
         name: 'DrugDetail',
         component: () => import('@/views/website/drugDetail'),
         meta: { title: '药品详情' }
@@ -144,11 +144,6 @@ const routes = [
 
 const router = new VueRouter({
   routes
-})
-
-router.beforeEach((to, from, next) => {
-  document.title = to.meta.title + ' | 我的药店'
-  if (to.path) next()
 })
 
 export default router

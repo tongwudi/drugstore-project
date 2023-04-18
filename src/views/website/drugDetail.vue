@@ -3,14 +3,14 @@
     <div class="drug-detail_top">
       <el-image class="image" :src="url"></el-image>
       <div class="info">
-        <div class="info-name">布洛芬缓释胶囊</div>
-        <div class="info-category">适用症状：感冒发热</div>
-        <div class="info-specifications">规格：8丸*15袋</div>
-        <div class="info-approval">国药准字：GJ12345678</div>
-        <div class="info-manufacturer">生产厂家：江西xxxx有限公司</div>
+        <div class="info-name">{{ info.drugName }}</div>
+        <div class="info-indication">适用症状：{{ info.indication }}</div>
+        <div class="info-specifications">规格：{{ info.specifications }}</div>
+        <div class="info-approval">国药准字：{{ info.approval }}</div>
+        <div class="info-manufacturer">生产厂家：{{ info.manufacturer }}</div>
         <div class="info-price">
           <span>价格：</span>
-          <span>{{ 13 | filterPrice }}</span>
+          <span>{{ info.price | filterPrice }}</span>
         </div>
         <div class="info-number">
           <span>数量：</span>
@@ -37,19 +37,29 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { getDrugInfo } from '@/api/drug'
 
 export default {
   data() {
     return {
       url: require('@/assets/drug.jpeg'),
       number: 1,
-      activeIndex: '1'
+      activeIndex: '1',
+      info: {}
     }
   },
   computed: {
-    ...mapGetters({ isLogin: 'isWebLogin' })
+    ...mapGetters(['isLogin'])
+  },
+  mounted() {
+    this.getDetail()
   },
   methods: {
+    async getDetail() {
+      const { id } = this.$route.params
+      const res = await getDrugInfo(id)
+      this.info = res.data
+    },
     addToCart() {
       this.$message.success('成功加入购物车！')
     },

@@ -10,7 +10,7 @@ export default new Vuex.Store({
     collapse: +Cookies.get('collapse') || 0
   },
   getters: {
-    isWebLogin: state => !!state.userInfo,
+    isLogin: state => !!state.userInfo,
     getUserInfo: state => state.userInfo || {},
     isCollapse: state => !!+state.collapse
   },

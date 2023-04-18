@@ -5,10 +5,10 @@
         <el-form-item label="药品名称">
           <el-input v-model="formInline.drugName" clearable />
         </el-form-item>
-        <el-form-item label="药品分类">
-          <el-select v-model="formInline.categoryId" clearable>
+        <el-form-item label="适用症状">
+          <el-select v-model="formInline.indication" clearable>
             <el-option
-              v-for="item in categoryList"
+              v-for="item in indicationList"
               :key="item.id"
               :label="item.name"
               :value="item.id"
@@ -32,11 +32,11 @@
       <el-button size="small" type="primary" @click="add">新增</el-button>
     </el-row>
 
-    <el-table size="small" :data="tableData">
+    <el-table size="small" v-loading="loading" :data="tableData">
       <el-table-column prop="drugName" label="药品名称" show-overflow-tooltip />
       <el-table-column
-        prop="category"
-        label="药品分类"
+        prop="indication"
+        label="适用症状"
         width="150"
         align="center"
       />
@@ -72,19 +72,19 @@
       <el-form ref="form" label-width="6em" :model="form" :rules="rules">
         <el-row>
           <el-col :span="12">
-            <el-form-item label="'药品名称" prop="drugName">
+            <el-form-item label="药品名称" prop="drugName">
               <el-input v-model="form.drugName" />
             </el-form-item>
           </el-col>
           <el-col :span="12">
-            <el-form-item label="药品分类" prop="categoryId">
+            <el-form-item label="适用症状" prop="indicationId">
               <el-select
                 style="width: 100%"
-                v-model="form.categoryId"
-                @change="changeCategory"
+                v-model="form.indicationId"
+                @change="changeindication"
               >
                 <el-option
-                  v-for="item in categoryList"
+                  v-for="item in indicationList"
                   :key="item.id"
                   :label="item.name"
                   :value="item.id"
@@ -149,16 +149,17 @@ import {
   getDrugInfo,
   editDrug,
   delDrug,
-  getCategoryList,
+  getindicationList,
   getDosageFormList
-} from '@/api/index'
+} from '@/api/drug'
 
 export default {
   data() {
     return {
-      categoryList: [],
+      indicationList: [],
       dosageFormList: [],
       formInline: {},
+      loading: false,
       tableData: [],
       currentPage: 1,
       total: 0,
@@ -169,7 +170,7 @@ export default {
         drugName: [
           { required: true, message: '药品名称不能为空', trigger: 'blur' }
         ],
-        categoryId: [
+        indicationId: [
           { required: true, message: '药品分类不能为空', trigger: 'change' }
         ],
         dosageFormId: [
@@ -189,19 +190,20 @@ export default {
     }
   },
   mounted() {
-    Promise.all([this.getCategoryOption(), this.getDosageFormOption()])
+    Promise.all([this.getindicationOption(), this.getDosageFormOption()])
     this.getList()
   },
   methods: {
-    async getCategoryOption() {
-      const res = await getCategoryList()
-      this.categoryList = res.data
+    async getindicationOption() {
+      const res = await getindicationList()
+      this.indicationList = res.data
     },
     async getDosageFormOption() {
       const res = await getDosageFormList()
       this.dosageFormList = res.data
     },
     async getList() {
+      this.loading = true
       const formInline = Object.keys(this.formInline).reduce((o, n) => {
         o[n + '_like'] = this.formInline[n]
         return o
@@ -210,6 +212,7 @@ export default {
         ...formInline,
         _page: this.currentPage
       })
+      this.loading = false
       this.tableData = res.data
       this.total = Number(res.headers['x-total-count'])
     },
@@ -233,9 +236,9 @@ export default {
       const res = await getDrugInfo(id)
       this.form = res.data
     },
-    changeCategory(val) {
-      const category = this.categoryList.find(item => item.id === val).name
-      this.$set(this.form, 'category', category)
+    changeindication(val) {
+      const indication = this.indicationList.find(item => item.id === val).name
+      this.$set(this.form, 'indication', indication)
     },
     changeDosageForm(val) {
       const dosageForm = this.dosageFormList.find(item => item.id === val).name
@@ -257,7 +260,7 @@ export default {
       })
     },
     resetForm() {
-      if (!this.$refs.form) return
+      if (!this.$refs.form) return;
       this.$refs.form.resetFields()
       this.form = {}
     },
@@ -275,9 +278,3 @@ export default {
   }
 }
 </script>
-
-<style lang="less" scoped>
-.el-table {
-  margin-bottom: 15px;
-}
-</style>

@@ -1,5 +1,5 @@
 {
-  "category": [
+  "indication": [
     {
       "name": "感冒发热",
       "id": 1
@@ -74,8 +74,8 @@
       "price": "13",
       "dosageForm": "胶囊剂",
       "dosageFormId": 1,
-      "category": "风湿骨科",
-      "categoryId": 4,
+      "indication": "风湿骨科",
+      "indicationId": 4,
       "specifications": "12粒x2板/盒",
       "approval": "国药准字H10900089",
       "manufacturer": "中美天津史克制药有限公司"
@@ -86,8 +86,8 @@
       "price": "8.96",
       "dosageForm": "乳膏剂",
       "dosageFormId": 2,
-      "category": "呼吸系统",
-      "categoryId": 2,
+      "indication": "呼吸系统",
+      "indicationId": 2,
       "specifications": "6片*2板/盒",
       "approval": "国药准字B20020993",
       "manufacturer": "广西金嗓子有限责任公司"
@@ -98,8 +98,8 @@
       "price": "9.00",
       "dosageForm": "乳膏剂",
       "dosageFormId": 2,
-      "category": "皮肤科药",
-      "categoryId": 3,
+      "indication": "皮肤科药",
+      "indicationId": 3,
       "specifications": "15mg/支",
       "approval": "国药准字H44024170",
       "manufacturer": "华润三九医药股份有限公司"
@@ -110,8 +110,8 @@
       "price": "12.50",
       "dosageForm": "乳膏剂",
       "dosageFormId": 2,
-      "category": "皮肤科药",
-      "categoryId": 3,
+      "indication": "皮肤科药",
+      "indicationId": 3,
       "specifications": "20g/支",
       "approval": "国药准字H61020001",
       "manufacturer": "西安杨森制药有限公司"
@@ -122,8 +122,8 @@
       "price": "11.89",
       "dosageForm": "颗粒剂",
       "dosageFormId": 3,
-      "category": "感冒发热",
-      "categoryId": 1,
+      "indication": "感冒发热",
+      "indicationId": 1,
       "specifications": "9袋/盒",
       "approval": "国药准字H61020001",
       "manufacturer": "华润三九医药股份有限公司"
@@ -134,8 +134,8 @@
       "price": "20.25",
       "dosageForm": "薄膜衣片剂",
       "dosageFormId": 4,
-      "category": "心脑血管",
-      "categoryId": 5,
+      "indication": "心脑血管",
+      "indicationId": 5,
       "specifications": "7片/盒",
       "approval": "国药准字J20810028",
       "manufacturer": "拜耳医药保健有限公司"
@@ -146,8 +146,8 @@
       "price": "12.00",
       "dosageForm": "片剂",
       "dosageFormId": 5,
-      "category": "心脑血管",
-      "categoryId": 5,
+      "indication": "心脑血管",
+      "indicationId": 5,
       "specifications": "15片x2板/盒",
       "approval": "国药准字H20160685",
       "manufacturer": "拜耳医药保健有限公司"
@@ -158,8 +158,8 @@
       "price": "8.00",
       "dosageForm": "软膏剂",
       "dosageFormId": 6,
-      "category": "肠胃用药",
-      "categoryId": 6,
+      "indication": "肠胃用药",
+      "indicationId": 6,
       "specifications": "10g/支",
       "approval": "国药准字Z42021945",
       "manufacturer": "马应龙药业集团股份有限公司"
@@ -170,8 +170,8 @@
       "price": "5.99",
       "dosageForm": "薄膜衣片剂",
       "dosageFormId": 4,
-      "category": "肠胃用药",
-      "categoryId": 6,
+      "indication": "肠胃用药",
+      "indicationId": 6,
       "specifications": "8片x4板/盒",
       "approval": "国药准字Z20013220",
       "manufacturer": "江中药业股份有限公司"
@@ -182,8 +182,8 @@
       "price": "11.97",
       "dosageForm": "颗粒剂",
       "dosageFormId": 3,
-      "category": "肠胃用药",
-      "categoryId": 6,
+      "indication": "肠胃用药",
+      "indicationId": 6,
       "specifications": "6袋/盒",
       "approval": "国药准字Z44095218",
       "manufacturer": "华润三九医药股份有限公司"
@@ -194,8 +194,8 @@
       "price": "15.00",
       "dosageForm": "薄膜衣片剂",
       "dosageFormId": 4,
-      "category": "肠胃用药",
-      "categoryId": 6,
+      "indication": "肠胃用药",
+      "indicationId": 6,
       "specifications": "12片x2板/盒",
       "approval": "国药准字Z36042611",
       "manufacturer": "江西康恩贝中药有限公司"
@@ -206,8 +206,8 @@
       "price": "22.98",
       "dosageForm": "膏剂",
       "dosageFormId": 7,
-      "category": "呼吸系统",
-      "categoryId": 2,
+      "indication": "呼吸系统",
+      "indicationId": 2,
       "specifications": "150ml/瓶",
       "approval": "国药准字ZC20160005",
       "manufacturer": "京都念慈菴总厂有限公司"
@@ -218,8 +218,8 @@
       "price": "22.98",
       "dosageForm": "颗粒剂",
       "dosageFormId": 3,
-      "category": "呼吸系统",
-      "categoryId": 2,
+      "indication": "呼吸系统",
+      "indicationId": 2,
       "specifications": "6袋/盒",
       "approval": "国药准字ZC200535214",
       "manufacturer": "黑龙江葵花药业股份有限公司"
@@ -230,8 +230,8 @@
       "price": "26.79",
       "dosageForm": "薄膜衣片剂",
       "dosageFormId": 4,
-      "category": "妇科用药",
-      "categoryId": 7,
+      "indication": "妇科用药",
+      "indicationId": 7,
       "specifications": "18片x6板/盒",
       "approval": "国药准字Z43020027",
       "manufacturer": "株洲千金药业股份有限公司"
@@ -242,8 +242,8 @@
       "price": "9.30",
       "dosageForm": "片剂",
       "dosageFormId": 5,
-      "category": "妇科用药",
-      "categoryId": 7,
+      "indication": "妇科用药",
+      "indicationId": 7,
       "specifications": "2片/盒",
       "approval": "国药准字H11021372",
       "manufacturer": "华润紫竹药业有限公司"
@@ -254,8 +254,8 @@
       "price": "7.59",
       "dosageForm": "颗粒剂",
       "dosageFormId": 3,
-      "category": "妇科用药",
-      "categoryId": 7,
+      "indication": "妇科用药",
+      "indicationId": 7,
       "specifications": "8袋/盒",
       "approval": "国药准字H13020660",
       "manufacturer": "北京同仁堂天然药物有限公司"
@@ -266,8 +266,8 @@
       "price": "9.00",
       "dosageForm": "水丸剂",
       "dosageFormId": 8,
-      "category": "风湿骨科",
-      "categoryId": 4,
+      "indication": "风湿骨科",
+      "indicationId": 4,
       "specifications": "10袋/盒",
       "approval": "国药准字Z44020771",
       "manufacturer": "华润三九医药股份有限公司"
@@ -275,14 +275,32 @@
     {
       "id": 18,
       "drugName": "云南白药气雾剂",
-      "category": "风湿骨科",
-      "categoryId": 4,
+      "indication": "风湿骨科",
+      "indicationId": 4,
       "dosageForm": "气雾剂",
       "dosageFormId": 9,
       "price": "29.34",
       "specifications": "30g/盒",
       "approval": "国药准字Z530211034",
       "manufacturer": "云南白药集团股份有限公司"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "userName": "admin",
+      "password": "123456",
+      "nickName": "管理员",
+      "status": 1,
+      "createTime": "2023-03-18 13:48:52"
+    },
+    {
+      "id": 2,
+      "userName": "lijiao",
+      "password": "123456",
+      "nickName": "李娇",
+      "status": 1,
+      "createTime": "2023-03-20 10:06:48"
     }
   ]
 }

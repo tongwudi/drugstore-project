@@ -35,7 +35,7 @@ import { mapGetters, mapMutations } from 'vuex'
 export default {
   computed: {
     ...mapGetters({
-      isLogin: 'isWebLogin',
+      isLogin: 'isLogin',
       userInfo: 'getUserInfo'
     })
   },

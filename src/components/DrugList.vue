@@ -1,7 +1,7 @@
 <template>
   <el-row class="drug-list" :gutter="20">
     <el-col class="drug-item" :span="6" v-for="item in list" :key="item.id">
-      <div class="drug-item-box" @click="goDetail">
+      <div class="drug-item-box" @click="goDetail(item)">
         <el-image :src="url"></el-image>
         <div class="info">
           <div class="info-name">{{ item.drugName }}</div>
@@ -24,8 +24,8 @@ export default {
     }
   },
   methods: {
-    goDetail() {
-      this.$router.push({ path: '/website/drug/detail' })
+    goDetail({ id }) {
+      this.$router.push({ path: `/website/drug/detail/${id}` })
     }
   }
 }

@@ -47,7 +47,7 @@
 
 <script>
 import DrugList from '@/components/DrugList'
-import { getDrugList } from '@/api/index'
+import { getDrugList } from '@/api/drug'
 
 export default {
   components: { DrugList },

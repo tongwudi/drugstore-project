@@ -28,8 +28,8 @@ export const delDrug = id => {
 }
 
 // 获取药品类型列表
-export const getCategoryList = () => {
-  return axios.get(`http://localhost:4303/category`)
+export const getindicationList = () => {
+  return axios.get(`http://localhost:4303/indication`)
 }
 
 // 获取剂型列表
