@@ -7,14 +7,14 @@ export const getDrugList = params => {
   })
 }
 
-// 新增药品
-export const addDrug = data => {
-  return axios.post(`http://localhost:4303/drug`, data)
-}
-
 // 获取药品详情
 export const getDrugInfo = id => {
   return axios.get(`http://localhost:4303/drug/${id}`)
+}
+
+// 新增药品
+export const addDrug = data => {
+  return axios.post(`http://localhost:4303/drug`, data)
 }
 
 // 修改药品

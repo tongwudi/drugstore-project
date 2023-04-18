@@ -3,10 +3,10 @@
     <el-row type="flex" align="top" justify="space-between">
       <el-form size="small" :inline="true" :model="formInline">
         <el-form-item label="药品名称">
-          <el-input v-model="formInline.drugName" placeholder="药品名称" />
+          <el-input v-model="formInline.drugName" clearable />
         </el-form-item>
         <el-form-item label="药品分类">
-          <el-select v-model="formInline.categoryId" placeholder="药品分类">
+          <el-select v-model="formInline.categoryId" clearable>
             <el-option
               v-for="item in categoryList"
               :key="item.id"
@@ -16,7 +16,7 @@
           </el-select>
         </el-form-item>
         <el-form-item label="剂型">
-          <el-select v-model="formInline.dosageFormId" placeholder="剂型">
+          <el-select v-model="formInline.dosageFormId" clearable>
             <el-option
               v-for="item in dosageFormList"
               :key="item.id"
@@ -81,7 +81,6 @@
               <el-select
                 style="width: 100%"
                 v-model="form.categoryId"
-                placeholder="请选择药品分类"
                 @change="changeCategory"
               >
                 <el-option
@@ -98,7 +97,6 @@
               <el-select
                 style="width: 100%"
                 v-model="form.dosageFormId"
-                placeholder="请选择剂型"
                 @change="changeDosageForm"
               >
                 <el-option
@@ -204,8 +202,12 @@ export default {
       this.dosageFormList = res.data
     },
     async getList() {
+      const formInline = Object.keys(this.formInline).reduce((o, n) => {
+        o[n + '_like'] = this.formInline[n]
+        return o
+      }, {})
       const res = await getDrugList({
-        ...this.formInline,
+        ...formInline,
         _page: this.currentPage
       })
       this.tableData = res.data
@@ -216,6 +218,7 @@ export default {
       this.getList()
     },
     search() {
+      this.currentPage = 1
       this.getList()
     },
     add() {
